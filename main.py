@@ -7,9 +7,9 @@ from spotipy.oauth2 import SpotifyOAuth
 
 
 user_input = input("Which year will you like to travel to? Type the date in this format YYYY-MM-DD:\n")
-CLIENT_ID = "67e70f01c4f443c98455190290524c88"
-CLIENT_SECRET = "b6eeddce3c834268b8cf0c9537cbb76b"
-user_id = "Kobby24"
+CLIENT_ID = CLIENT_ID
+CLIENT_SECRET = CLIENT_SECRET
+user_id = USER_ID
 
 
 # user_input = "2020-02-11"
