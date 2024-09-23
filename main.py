@@ -19,27 +19,27 @@ response = requests.get(url=url)
 response_text = response.text
 print(response_text)
 
-# soup = BeautifulSoup(response_text, "lxml")
-#
-# top_100_ = soup.select("li ul li h3")
-# top_100_list = [i.getText().strip() for i in top_100_]
-# print(top_100_list)
-#
-# scope = "user-library-read playlist-modify-public playlist-modify-private playlist-read-private"
-#
-# sp = spotipy.Spotify(auth_manager=SpotifyOAuth(username="Kobby24",scope=scope,client_id=CLIENT_ID,client_secret=CLIENT_SECRET,redirect_uri="http://example.com",))
-#
-# results = sp.current_user()["id"]
-# print(results)
-#
-# song_urls = [sp.search(q=track)["tracks"]["items"][0]["external_urls"]["spotify"] for track in top_100_list]
-#
-# print(song_urls)
-# creat_pl = sp.user_playlist_create(user=results,name=f"{user_input}Billboard 100",public=True,collaborative=False,
-#                                    description="Top 100")
-# creat_pl_id = creat_pl["id"]
-# add_trcks = sp.playlist_add_items(playlist_id=creat_pl_id,items=song_urls,position=None)
-#
-# print(creat_pl)
-# print(creat_pl_id)
-# print(add_trcks)
+soup = BeautifulSoup(response_text, "lxml")
+
+top_100_ = soup.select("li ul li h3")
+top_100_list = [i.getText().strip() for i in top_100_]
+print(top_100_list)
+
+scope = "user-library-read playlist-modify-public playlist-modify-private playlist-read-private"
+
+sp = spotipy.Spotify(auth_manager=SpotifyOAuth(username="Kobby24",scope=scope,client_id=CLIENT_ID,client_secret=CLIENT_SECRET,redirect_uri="http://example.com",))
+
+results = sp.current_user()["id"]
+print(results)
+
+song_urls = [sp.search(q=track)["tracks"]["items"][0]["external_urls"]["spotify"] for track in top_100_list]
+
+print(song_urls)
+creat_pl = sp.user_playlist_create(user=results,name=f"{user_input}Billboard 100",public=True,collaborative=False,
+                                   description="Top 100")
+creat_pl_id = creat_pl["id"]
+add_trcks = sp.playlist_add_items(playlist_id=creat_pl_id,items=song_urls,position=None)
+
+print(creat_pl)
+print(creat_pl_id)
+print(add_trcks)
